@@ -29,6 +29,7 @@
 <div class="container">
     <div class="jumbotron">
         <h1>Order Form</h1>
+        <div id="loadBar" class="loader" ></div>
         <div id="json"></div>
     </div>
 
@@ -74,7 +75,7 @@
 
     firebaseOrdersCollection.on('value', function (orders) {
         var allOrdersHtml = "";
-
+        document.getElementById('loadBar').remove();
         orders.forEach(function (firebaseOrderReference) {
             var order = firebaseOrderReference.val();
             console.log(firebaseOrderReference.key);
@@ -82,7 +83,7 @@
             var data = {'fullName': order.fullName, 'notes': order.notes};
             var str = JSON.stringify(data, undefined, 4);
 
-            output(syntaxHighlight(str),"Key: "+firebaseOrderReference.key);
+            output(syntaxHighlight(str), "Key: " + firebaseOrderReference.key);
         });
 
 
