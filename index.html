@@ -1,10 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Database data</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!-- Firebase JS -->
+    <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+    <!--Script code Prettifier-->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 </head>
+
 <body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Order Form</h1>
+        <div id="json"></div>
+    </div>
+
+
+</div>
+
+<script>
+    var config = {
+        apiKey: "AIzaSyDkElzogUYCxKkiOwkcjKGh-H_pPIAekhc",
+        authDomain: "fir-example-fc906.firebaseapp.com",
+        databaseURL: "https://fir-example-fc906.firebaseio.com",
+        projectId: "fir-example-fc906",
+        storageBucket: "fir-example-fc906.appspot.com",
+        messagingSenderId: "206064177982"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    var firebaseOrdersCollection = database.ref().child('orders');
+
+    function output(inp, name) {
+        document.getElementById('json').insertAdjacentText('beforeend', name);
+        document.getElementById('json').appendChild(document.createElement('pre')).innerHTML = inp;
+    }
+
+    function syntaxHighlight(json) {
+        json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+
+    firebaseOrdersCollection.on('value', function (orders) {
+        var allOrdersHtml = "";
+
+        orders.forEach(function (firebaseOrderReference) {
+            var order = firebaseOrderReference.val();
+            console.log(firebaseOrderReference.key);
+
+            var data = {'fullName': order.fullName, 'notes': order.notes};
+            var str = JSON.stringify(data, undefined, 4);
+
+            output(syntaxHighlight(str),"Key: "+firebaseOrderReference.key);
+        });
+
+
+        $('#previousOrders').html(allOrdersHtml);
+    });
+
+</script>
 
 </body>
+
 </html>
