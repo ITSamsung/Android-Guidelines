@@ -1,6 +1,68 @@
 {
-  "example": {
-    "one": 1,
-    "two": 2
+  "v1": {
+    "loan": {
+      "amount": 2000000,
+      "term": 60,
+      "interest": 10.00,
+      "date": "2019-01-28"
+    },
+    "applications": "here",
+    "1001": {
+      "amount": 200000,
+      "currency": "RUB",
+      "period": 24,
+      "status": "approved",
+      "interest": 12,
+      "maxAmount": 100000
+    },
+    "1002": {
+      "amount": 200000,
+      "currency": "RUB",
+      "period": 24,
+      "status": "rejected",
+      "interest": 12,
+      "maxAmount": 100000
+    },
+    "clients": "here",
+    "2001": {
+      "firstName": "Bbbbbb",
+      "lastName": "Aaaaaa",
+      "birthDate": "2019-01-28",
+      "passport": {
+        "series": 8612,
+        "number": 949837
+      },
+      "jobs": [
+        {
+          "wage": 2000000,
+          "name": "SPBU"
+        },
+        {
+          "wage": 11000,
+          "name": "Газпром"
+        }
+      ],
+      "sex": "male",
+      "maritalStatus": "married",
+      "childrens": 2
+    },
+    "2002": {
+      "firstName": "dasf",
+      "lastName": "4214",
+      "birthDate": "2010-06-12",
+      "passport": {
+        "series": 6486,
+        "number": 678275
+      },
+      "jobs": [
+        {
+          "wage": 8967605,
+          "name": "ITMO"
+        }
+      ],
+      "sex": "male",
+      "maritalStatus": "married",
+      "childrens": 0
+    }
   }
 }
