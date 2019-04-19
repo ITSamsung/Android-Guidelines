@@ -1,68 +1,66 @@
 {
-  "v1": {
-    "loan": {
-      "amount": 2000000,
-      "term": 60,
-      "interest": 10.00,
-      "date": "2019-01-28"
+  "v1/loan": {
+    "amount": 2000000,
+    "term": 60,
+    "interest": 10.00,
+    "date": "2019-01-28"
+  },
+  "v1/applications": "here",
+  "v1/1001": {
+    "amount": 200000,
+    "currency": "RUB",
+    "period": 24,
+    "status": "approved",
+    "interest": 12,
+    "maxAmount": 100000
+  },
+  "v1/1002": {
+    "amount": 200000,
+    "currency": "RUB",
+    "period": 24,
+    "status": "rejected",
+    "interest": 12,
+    "maxAmount": 100000
+  },
+  "v1/clients": "here",
+  "v1/2001": {
+    "firstName": "Bbbbbb",
+    "lastName": "Aaaaaa",
+    "birthDate": "2019-01-28",
+    "passport": {
+      "series": 8612,
+      "number": 949837
     },
-    "applications": "here",
-    "1001": {
-      "amount": 200000,
-      "currency": "RUB",
-      "period": 24,
-      "status": "approved",
-      "interest": 12,
-      "maxAmount": 100000
-    },
-    "1002": {
-      "amount": 200000,
-      "currency": "RUB",
-      "period": 24,
-      "status": "rejected",
-      "interest": 12,
-      "maxAmount": 100000
-    },
-    "clients": "here",
-    "2001": {
-      "firstName": "Bbbbbb",
-      "lastName": "Aaaaaa",
-      "birthDate": "2019-01-28",
-      "passport": {
-        "series": 8612,
-        "number": 949837
+    "jobs": [
+      {
+        "wage": 2000000,
+        "name": "SPBU"
       },
-      "jobs": [
-        {
-          "wage": 2000000,
-          "name": "SPBU"
-        },
-        {
-          "wage": 11000,
-          "name": "Газпром"
-        }
-      ],
-      "sex": "male",
-      "maritalStatus": "married",
-      "childrens": 2
+      {
+        "wage": 11000,
+        "name": "Газпром"
+      }
+    ],
+    "sex": "male",
+    "maritalStatus": "married",
+    "childrens": 2
+  },
+  "v1/2002": {
+    "firstName": "dasf",
+    "lastName": "4214",
+    "birthDate": "2010-06-12",
+    "passport": {
+      "series": 6486,
+      "number": 678275
     },
-    "2002": {
-      "firstName": "dasf",
-      "lastName": "4214",
-      "birthDate": "2010-06-12",
-      "passport": {
-        "series": 6486,
-        "number": 678275
-      },
-      "jobs": [
-        {
-          "wage": 8967605,
-          "name": "ITMO"
-        }
-      ],
-      "sex": "male",
-      "maritalStatus": "married",
-      "childrens": 0
-    }
+    "jobs": [
+      {
+        "wage": 8967605,
+        "name": "ITMO"
+      }
+    ],
+    "sex": "male",
+    "maritalStatus": "married",
+    "childrens": 0
   }
 }
